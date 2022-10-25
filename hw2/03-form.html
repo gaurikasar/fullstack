@@ -11,9 +11,34 @@
     />
     <script defer src="03-form.js"></script>
   </head>
+
   <body class="bg-dark">
-    <form class="bg-light border rounded w-50 mx-auto mt-5 p-3">
+    <form class="bg-light border rounded w-50 mx-auto mt-5 p-3" id="form">
       <h1 class="mt-2 mb-4">Contact Form</h1>
+      <div class="form-control">
+        <label for="name" class="form-label">Name*</label>
+        <input type="text" required name="name" id="name" class="form-control"/>
+
+        <label for="emailid" class="form-label">Email</label>
+        <input type="email" name="emailid" id="emailid" class="form-control" />
+
+        <label for="message" class="form-label">Submit your message here</label>
+        <textarea name="message" id="message" class="form-control"></textarea>
+
+        <div class="form-check">
+          <label for="checknews" class="form-check-label mt-2 mt-4">Sign up for newsletter</label>
+          <input type="checkbox" class="form-check-input" id="checknews"/>
+        </div>
+
+        <div class="row mt-4 gx-2">
+          <div class="col">
+            <input type="submit" class="btn btn-primary w-100" value="Submit" id="Submit"/>
+          </div>
+          <div class="col">
+            <input type="reset" class="btn btn-secondary w-100" value="Reset" />
+          </div>
+        </div>
+      </div>
     </form>
   </body>
 </html>
