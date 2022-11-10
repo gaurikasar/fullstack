@@ -1,5 +1,5 @@
 const http = require('http');
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 5002;
 
 // http://localhost:5000/welcome should return a status code 200 with a welcome message of your choice in html format
 
