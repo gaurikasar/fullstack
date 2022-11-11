@@ -33,54 +33,45 @@ let getRoutes = () => {
 
 app.get("/", (req, res) => {
   let routeResults = getRoutes();
-
-  res.writeHead(200, { "Content-Type": "text/html" });
-  res.write(`<h1>Exercise 04</h1>`);
-  res.write(`<ul> ${routeResults} </ul>`);
-  res.end();
+  res.status(200);
+  res.set({ "Content-Type": "text/html" });
+  res.send(`<h1>Exercise 04</h1> <ul> ${routeResults} </ul>` );
+ 
 });
 
 app.get("/welcome", (req, res) => {
   console.log(`${req.method} - ${req.url}`);
-  res.writeHead(200, { "Content-Type": "text/html" });
-  res.write("<h1>Welcome to the main page");
-  res.end();
+  res.status(200);
+  res.set({ "Content-Type": "text/html" });
+  res.send("<h1>Welcome to the main page");
 });
 app.get("/redirect", (req, res) => {
-  res.writeHead(302, { Location: "/redirected" });
-  res.end();
+  res.redirect(302, "/redirected");
+
 });
 app.get("/redirected", (req, res) => {
-  res.writeHead(200, { "Content-Type": "text/html" });
-  res.write("You have been successfully redirected to /redirected page.");
+  res.status(200);
+  res.set({ "Content-Type": "text/html" });
+  res.send("You have been successfully redirected to /redirected page.");
   res.end();
 });
 app.get("/cache", (req, res) => {
   console.log(`${req.method} - ${req.url}`);
-  res.setHeader("Cache-Control", "max-age=86400");
-  res.writeHead(200, { "Content-Type": "text/html" });
-  res.write("This resource was cached");
-  res.end();
-});
-app.get("/cache", (req, res) => {
-  res.writeHead(200, {
-    "Set-Cookie": "hello=world",
-    "Content-Type": `text/plain`,
-  });
-  res.write("cookies yummm");
-  res.end();
+  res.status(200);
+  res.set("Cache-Control", "max-age=86400");
+  res.set({ "Content-Type": "text/html" });
+  res.send("This resource was cached");
 });
 app.get("/cookie", (req, res) => {
-  res.writeHead(200, {
-    "Set-Cookie": "hello=world",
-    "Content-Type": `text/plain`,
-  });
-  res.write("cookies yummm");
-  res.end();
+  res.status(200);
+  res.cookie({"Set-Cookie": "hello=world"});
+  res.set({ "Content-Type": "text/html" });
+  res.send("cookies yummm");
 });
 app.get("/other", (req, res) => {
-  res.writeHead(404, { "Content-Type": "text/html" });
-  res.write("<h1>404: Page not found</h1>");
+  res.status(404);
+  res.set({ "Content-Type": "text/html" });
+  res.send("<h1>404: Page not found</h1>");
   res.end();
 });
 
