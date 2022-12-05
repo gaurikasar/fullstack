@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>05 - Form</title>
+    <script defer src="03-form.js"></script>
+</head>
+
+<body>
+    <form action="/submit" method="post">
+        <label for="name">FirstName *</label>
+        <input type="text" name="name" required />
+        </br>
+        </br>
+        <label for="email">Email Id *</label>
+        <input type="email"  name="email" required />
+        </br>
+        <br>
+        <label for="comments">Comments:</label>
+        <textarea type="text"  name="comments"></textarea>
+        </br>
+        <br>
+        <label for="checkbox">Signup for the newsletter</label>
+        <input type="checkbox" name="checkbox" checked="false" value="true" />
+        </br>
+        <button type="submit" > Submit </button>  
+    </form>
+</body>
+
+</html>
